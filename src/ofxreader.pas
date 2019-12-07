@@ -19,6 +19,7 @@ type
     ID: string;
     Document: string;
     Description: string;
+    Name: string;
   end;
 
   TOFXReader = class(TComponent)
@@ -187,6 +188,9 @@ begin
 
             if FindString('<MEMO>', sLine) then
               oItem.Description := InfLine(sLine);
+              
+                 if FindString('<NAME>', sLine) then
+              oItem.Nome := InfLine(sLine); //acrecentado
 
             if FindString('<TRNAMT>', sLine) then
               oItem.Value := InfLine(sLine);
